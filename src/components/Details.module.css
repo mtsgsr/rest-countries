@@ -64,18 +64,16 @@
 }
 
 @media (min-width: 640px) {
-  .country {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
   .flag {
     width: 85%;
   }
-  .description {
-    gap: 0rem;
-  }
   .elements {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .country {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
