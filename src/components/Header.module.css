@@ -1,0 +1,48 @@
+.header {
+  width: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px 0px;
+  margin-bottom: 1rem;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  width: 75vw;
+  margin: 0 auto;
+}
+
+.headerContent h1 {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: none;
+  color: var(--text);
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+.themeText {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .headerContent h1 {
+    font-size: 2rem;
+  }
+  .button {
+    padding: 0.5rem 0.25rem;
+  }
+  .themeText {
+    display: block;
+  }
+}
