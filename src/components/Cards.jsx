@@ -61,7 +61,7 @@ const Cards = ({ selection, searchInput, setCountry }) => {
     <main>
       <section className={styles.cards}>
         {countries
-          .sort((a, b) => (a.name.common > b.name.common ? 1 : -1))
+          .sort((a, b) => a.name.common.localeCompare(b.name.common))
           .slice(0, countriesVisible)
           .map((data) => (
             <Link
@@ -77,21 +77,22 @@ const Cards = ({ selection, searchInput, setCountry }) => {
                   src={data.flags.png}
                   alt={data.name.common}
                   draggable="false"
+                  loading="lazy"
                 />
               </div>
-              <p key={data.cca2}>
+              <h2 key={data.cca2}>
                 <b>{data.name.common}</b>
-              </p>
-              <span>
+              </h2>
+              <p>
                 <b className="semiBold">Population:</b>{" "}
                 {data.population.toLocaleString()}
-              </span>
-              <span>
+              </p>
+              <p>
                 <b className="semiBold">Region:</b> {data.region}
-              </span>
-              <span>
+              </p>
+              <p>
                 <b className="semiBold">Capital:</b> {data.capital || "—"}
-              </span>
+              </p>
             </Link>
           ))}
       </section>
