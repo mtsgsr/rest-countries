@@ -40,31 +40,6 @@
   text-align: center;
 }
 
-.loadingBox {
-  display: flex;
-  justify-content: center;
-}
-
-.loading {
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: #fff;
-  animation: loading 1s ease-in-out infinite;
-}
-
-@keyframes loading {
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes loading {
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
 @media (min-width: 768px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
