@@ -2,8 +2,10 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
-import Main from "./pages/Main";
-import Country from "./pages/Country";
+import Loading from "./components/Loading";
+
+const Main = React.lazy(() => import("./pages/Main"));
+const Country = React.lazy(() => import("./pages/Country"));
 
 function App() {
   const [country, setCountry] = React.useState([]);
@@ -11,10 +13,12 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <Routes>
-          <Route path="/" element={<Main setCountry={setCountry} />} />
-          <Route path="country/:id" element={<Country country={country} />} />
-        </Routes>
+        <React.Suspense fallback={<Loading height="100vh" />}>
+          <Routes>
+            <Route path="/" element={<Main setCountry={setCountry} />} />
+            <Route path="country/:id" element={<Country country={country} />} />
+          </Routes>
+        </React.Suspense>
       </Router>
     </ThemeProvider>
   );
