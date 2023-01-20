@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Cards.module.css";
 import useFetch from "../hooks/useFetch";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const Cards = ({ selection, searchInput, setCountry }) => {
   const { request, data, error, loading } = useFetch();
@@ -54,12 +55,7 @@ const Cards = ({ selection, searchInput, setCountry }) => {
 
   if (error) return <p className={styles.error}>{error}</p>;
 
-  if (loading)
-    return (
-      <div className={styles.loadingBox}>
-        <div className={styles.loading}></div>
-      </div>
-    );
+  if (loading) return <Loading />;
 
   return (
     <main>
