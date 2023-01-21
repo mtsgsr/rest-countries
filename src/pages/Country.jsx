@@ -2,11 +2,11 @@ import React from "react";
 import Header from "../components/Header";
 import Details from "../components/Details";
 
-const Country = ({ url, country }) => {
+const Country = ({ country, setCountry }) => {
   return (
     <>
       <Header />
-      <Details url={url} country={country} />
+      <Details country={country} setCountry={setCountry} />
     </>
   );
 };
