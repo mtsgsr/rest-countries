@@ -6,14 +6,14 @@ import Loading from "../components/Loading";
 
 const Cards = ({ selection, searchInput, setCountry }) => {
   const { request, data, error, loading } = useFetch();
-  const abortController = new AbortController();
   const [countriesVisible, setCountriesVisible] = React.useState(0);
   const ref = React.useRef(null);
 
   React.useEffect(() => {
-    request("https://restcountries.com/v3.1/all");
+    let ignore = false;
+    request(`https://restcountries.com/v3.1/all`);
     return () => {
-      abortController.abort();
+      ignore = true;
     };
   }, []);
 
