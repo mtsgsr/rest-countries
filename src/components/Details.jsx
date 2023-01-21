@@ -18,7 +18,7 @@ const Detail = ({ country }) => {
       </div>
       <div className={styles.country}>
         <img
-          src={country.flags.png}
+          src={country.flags.svg}
           alt={country.name.common}
           className={styles.flag}
         />
