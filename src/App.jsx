@@ -16,7 +16,10 @@ function App() {
         <React.Suspense fallback={<Loading height="100vh" />}>
           <Routes>
             <Route path="/" element={<Main setCountry={setCountry} />} />
-            <Route path="country/:id" element={<Country country={country} />} />
+            <Route
+              path="country/:id"
+              element={<Country country={country} setCountry={setCountry} />}
+            />
           </Routes>
         </React.Suspense>
       </Router>
