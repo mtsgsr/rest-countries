@@ -2,11 +2,35 @@ import React from "react";
 import styles from "./Details.module.css";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import useFetch from "../hooks/useFetch";
 
-const Detail = ({ country }) => {
+const Detail = ({ country, setCountry }) => {
+  const [code, setCode] = React.useState("");
+  const { request, data } = useFetch();
   const navigate = useNavigate();
 
   const goBack = () => navigate("/");
+
+  const handleNewCountry = (data) => {
+    setCountry(data);
+    navigate(`/country/${data.name.common.toLowerCase().replace(/\s/g, "-")}`);
+  };
+
+  React.useEffect(() => {
+    let ignore = false;
+    request(`https://restcountries.com/v3.1/all`);
+    return () => {
+      ignore = true;
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (code != "")
+      data
+        .map((data) => data)
+        .filter((data) => data.cca3 === code)
+        .map((data) => handleNewCountry(data));
+  }, [code]);
 
   return (
     <section className={styles.details + " fadeInLeft"}>
@@ -80,7 +104,12 @@ const Detail = ({ country }) => {
             </p>
             {(country.borders &&
               country.borders.map((border) => (
-                <button className={styles.borderBtn} key={border}>
+                <button
+                  className={styles.borderBtn}
+                  key={border}
+                  onClick={() => setCode(border)}
+                  type="button"
+                >
                   {border}
                 </button>
               ))) ||
