@@ -12,9 +12,13 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.headerContent}>
         <h1 onClick={() => navigate(0)}>Where in the world?</h1>
-        <button className={styles.button} onClick={() => toggleDarkMode()}>
+        <button
+          className={styles.button}
+          onClick={() => toggleDarkMode()}
+          aria-labelledby="btnText"
+        >
           {darkMode ? <FaMoon size={20} /> : <FaSun size={20} />}
-          <span className={styles.themeText}>
+          <span className={styles.themeText} id="btnText">
             {darkMode ? "Dark Mode" : "Light Mode"}
           </span>
         </button>
