@@ -77,7 +77,6 @@ const Cards = ({ selection, searchInput, setCountry }) => {
                   src={data.flags.png}
                   alt={data.name.common}
                   draggable="false"
-                  loading="lazy"
                 />
               </div>
               <h2 key={data.cca2}>
