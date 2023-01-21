@@ -16,6 +16,7 @@ const Header = () => {
           className={styles.button}
           onClick={() => toggleDarkMode()}
           aria-labelledby="btnText"
+          type="button"
         >
           {darkMode ? <FaMoon size={20} /> : <FaSun size={20} />}
           <span className={styles.themeText} id="btnText">
